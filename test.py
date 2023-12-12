@@ -6,27 +6,24 @@ import revised_final as rf
 def on_first_button_click():
     label.config(text="Do you want to start a new database, or you want to use a previously installed local database")
 
-    # Create two new buttons
     global new_button1, new_button2
     new_button1 = tk.Button(root, text="New database", command=on_new_button1_click)
     new_button1.pack(pady=10)
     new_button2 = tk.Button(root, text="Previous database", command=on_new_button2_click)
     new_button2.pack(pady=10)
 
-    # Destroy the initial button
     button.destroy()
 
 def on_new_button1_click():
     label.config(text="You are using a new database. Please make sure you have an internet connection.")
     create_input_widgets(1)
-    # Destroy the "New database" and "Previous database" buttons
+
     new_button1.destroy()
     new_button2.destroy()
 
 def on_new_button2_click():
     label.config(text="You are using a local database. If your input is not in the local database, it will search online.")
     create_input_widgets(2)
-    # Destroy the "New database" and "Previous database" buttons
     new_button1.destroy()
     new_button2.destroy()
 
@@ -48,14 +45,12 @@ def create_input_widgets(flag):
         pass
 
 def create_tabs(tab_names):
-    # Create a notebook (tabbed window)
 
-    # Create tabs
     for i, tab_name in enumerate(tab_names):
         tab = ttk.Frame(notebook)
         notebook.add(tab, text=tab_name)
         if i ==0:
-        # Create a label in each tab
+
             tab_label = tk.Label(tab, text=f"Enter the food you want to search:")
             tab_label.pack(padx=10, pady=10)
             tab_entry = tk.Entry(tab)
@@ -183,38 +178,30 @@ def handle_tab_button(button,entry=None):
         nutrient_tracker.display_graph()
 
     
-
-# Create the main window
+# Tkinter GUI setup
 root = tk.Tk()
 root.title("Nutrient Finder")
 
-# Set the window size
-# window_width = 450
-# window_height = 500
-# screen_width = root.winfo_screenwidth()
-# screen_height = root.winfo_screenheight()
-# x_coordinate = (screen_width - window_width) // 2
-# y_coordinate = (screen_height - window_height) // 2
-# root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
-
-
-# Create the initial button
+# Initial button setup
 button = tk.Button(root, text="Start", command=on_first_button_click)
 button.pack(pady=10)
 
-# Create a label
+# Initial label setup
 initial_text = "Welcome Nutrient Finder, click the button to start finding some food you want to search"
 label = tk.Label(root, text=initial_text, wraplength=400)  # Set wraplength to the desired maximum width
 label.pack(pady=10)
 
-# Declare new_button1 and new_button2 outside of the functions to make them accessible for destruction
+# Label for displaying information within tabs
 new_button1 = None
 new_button2 = None
 label_tab = tk.Label(root, text="")
 label_tab.pack(pady=10)
+
+# Notebook for organizing tabs
 notebook = ttk.Notebook(root)
 notebook.pack(fill="both", expand=True)
-# Start the main loop
+
+# Load initial data
 ori = rf.read_data_from_json("foundationDownload.json")
 database=rf.clean_database(ori)
 rf.update_data(database,"local.json")
