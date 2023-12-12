@@ -253,6 +253,4 @@ def binary_search_nutrients(data, target_name):#for list
 
 
 
-# Example usage:
-if __name__ == "__main__":
-    nutrient_tracker = Nutrient()
+
