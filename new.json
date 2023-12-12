@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "Frankfurter, beef, unheated",
+    "Protein": 11.7,
+    "Fat": 28.0,
+    "Carbs": 2.89
+  },
+  {
+    "Name": "Chicken, ground, with additives, raw",
+    "Protein": 17.9,
+    "Fat": 7.16,
+    "Carbs": 0.0
+  },
+  {
+    "Name": "Pork, ground, raw",
+    "Protein": 17.8,
+    "Fat": 17.5,
+    "Carbs": 0.0
+  },
+  {
+    "Name": "Fish, haddock, raw",
+    "Protein": 16.3,
+    "Fat": 0.45,
+    "Carbs": 0.0
+  },
+  {
+    "Name": "Carrots, baby, raw",
+    "Protein": 0.805,
+    "Fat": 0.138,
+    "Carbs": 9.08
+  }
+]
